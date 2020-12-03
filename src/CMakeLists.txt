@@ -59,7 +59,7 @@ if(BUILD_PANGOLIN_VARS)
   endif()
 endif()
 
-option(BUILD_PANGOLIN_VIDEO "Build support for Pangolin Video Utilities" ON)
+option(BUILD_PANGOLIN_VIDEO "Build support for Pangolin Video Utilities" OFF)
 if(BUILD_PANGOLIN_VIDEO)
   # Generic video includes
   append_glob(HEADERS ${INCDIR}/video/*.h*)
@@ -166,7 +166,7 @@ if(BUILD_PANGOLIN_GUI)
         list(APPEND SOURCES "ios/PangolinAppDelegate.mm" "ios/PangolinViewController.mm" )
         list(APPEND WINDOW_FACTORY_REG RegisterIosWindowFactory)
     else()
-        find_package(OpenGL REQUIRED)
+        find_package(OpenGL REQUIRED COMPONENTS OpenGL)
         list(APPEND USER_INC  ${OPENGL_INCLUDE_DIR})
         list(APPEND LINK_LIBS ${OPENGL_LIBRARIES})
 
